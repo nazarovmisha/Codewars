@@ -1,7 +1,4 @@
-package ky7;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package kyu7;
 
 //https://www.codewars.com/kata/54ff3102c1bad923760001f3/train/java
 //Return the number (count) of vowels in the given string.

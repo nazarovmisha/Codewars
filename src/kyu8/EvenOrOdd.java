@@ -1,4 +1,4 @@
-package ky8;
+package kyu8;
 
 //https://www.codewars.com/kata/53da3dbb4a5168369a0000fe/train/java/63ca8491d0ffff0058d005ee
 
