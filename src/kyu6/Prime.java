@@ -16,18 +16,21 @@ package kyu6;
 public class Prime {
     public static void main(String[] args) {
 
-        System.out.println(isPrime(4));
+        System.out.println(isPrime(773340481 ));
+        System.out.println(isPrime(1879975193));
+        System.out.println(isPrime(155622443));
+        System.out.println(isPrime(232023331));
+        System.out.println(isPrime(1077214069));
     }
-
     public static boolean isPrime(int num) {
-        if (num <= 1||(num>2&&num%2==0)) {
+        if (num <= 1||(num>2&&num%2==0||num>4&&num%3==0)) {
             return false;
         }
         int[] arr = new int[2];
         boolean isTrue = true;
         int k = 0;
         try {
-            for (int i = 1; i <= num; i+=2) {
+            for (int i = 1; i <= num; i+=9) {
                 if (num % i == 0) {
                     System.out.println(i);
                     arr[k] = i;
@@ -40,4 +43,5 @@ public class Prime {
         return isTrue;
     }
 }
+
 
