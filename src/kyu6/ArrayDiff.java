@@ -9,27 +9,24 @@ package kyu6;
 //
 //        Kata.arrayDiff(new int[] {1, 2, 2, 2, 3}, new int[] {2}) => new int[] {1, 3}
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ArrayDiff {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString((arrayDiff(new int [] {}, new int[] {1,2}))));
+        System.out.println(Arrays.toString((arrayDiff(new int[]{1, 2, 3, 1, 2, 3, 12, 3, 232, 3}, new int[]{1, 2}))));
 
     }
 
     public static int[] arrayDiff(int[] a, int[] b) {
-        List<Integer> list = new ArrayList<>();
-        for (int k : b) {
-            for (int i : a) {
-                if (k != i) {
-                    list.add(i);
-                }
-            }
+        List<Integer> listA = Arrays.stream(a).boxed().toList();
+        List<Integer> listC = new ArrayList<>(listA);
+        for (int j : b) {
+            listC.removeAll(Collections.singleton(j));
         }
-        return list.stream().mapToInt(i -> i).toArray();
+        return listC.stream().mapToInt(i -> i).toArray();
+
     }
 }
+
 
 
