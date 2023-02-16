@@ -17,7 +17,7 @@ import java.util.Arrays;
 //        I found it quite fun to solve on paper using math, derive the algo that way. Have fun!
 public class ArithmeticProgression {
     public static void main(String[] args) {
-        System.out.println(findMissing(new int[]{2, 4, 6, 10}));
+        System.out.println(findMissing(new int[]{2, 4, 6, 8, 10}));
     }
 
     public static int findMissing(int[] numbers) {
@@ -29,10 +29,10 @@ public class ArithmeticProgression {
             count = numbers[numbers.length - 1] - numbers[numbers.length - 2];
             result = numbers[1] - numbers[0];
         }
-        if(result>count){
-            return
-        }
-        System.out.println(count);
+        if (result > count) {
+            result = numbers[numbers.length - 1] - numbers[0];
+        } else
+            System.out.println(count);
         System.out.println(result);
         return result;
     }
