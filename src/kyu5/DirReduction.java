@@ -43,17 +43,17 @@ import java.util.*;
 
 public class DirReduction {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(dirReduc(new String[]{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"})));
+        System.out.println(Arrays.toString(reduction(new String[]{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"})));
     }
 
     public static String[] reduction(String[] arr) {
-        String west = "WEST";
-        String east = "EAST";
-        String north = "NORTH";
+        String west = new String("WEST");
+        String east = new String("EAST");
+        String north = new String("NORTH");
         String south = new String("SOUTH");
         String nulll = new String("NULL");
-        for (int i = 0; i < arr.length - 1; i++) {
-
+        int count = 0;
+        for (int i = 0; i < arr.length-1; i++) {
             if (Objects.equals(arr[i], north) && Objects.equals(arr[i + 1], south)) {
                 arr[i] = nulll;
                 arr[i + 1] = nulll;
@@ -67,7 +67,11 @@ public class DirReduction {
                 arr[i] = nulll;
                 arr[i + 1] = nulll;
             }
+            if (arr[i]!=null){
+                count++;
+            }
         }
+        System.out.println(count);
         return arr;
     }
 
@@ -87,8 +91,8 @@ public class DirReduction {
 
 
         String[] newarr = new String[tmp];
-        for (int i = 0;i < arr.length; i++) {
-            if (arr[i].equals(north)||arr[i].equals(south)||arr[i].equals(east)||arr[i].equals(west));
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(north) || arr[i].equals(south) || arr[i].equals(east) || arr[i].equals(west)) ;
             {
                 newarr[i] = arr[i];
                 System.out.println(newarr[i]);
