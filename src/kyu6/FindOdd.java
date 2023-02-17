@@ -15,26 +15,36 @@ import java.util.Arrays;
 
 public class FindOdd {
     public static void main(String[] args) {
-        System.out.println(findIt(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}));
+        System.out.println(findIt(new int[]{20, 5, 5, 4, 20, 4, 5}));
     }
 
     public static int findIt(int[] a) {
         Arrays.sort(a);
         int result = 0;
-        int length = a.length - 1;
+        int length = a.length;
+        System.out.println("length " + length);
         if (a.length == 1) {
             result = a[0];
         }
         System.out.println(Arrays.toString(a));
         for (int i = a.length - 1; i > 0; i--) {
-            if (a[i] > a[i - 1]) {
-                if ((length - i-1) % 2 != 0) {
-                   result=a[i];
-                    result = length -1- i;
+        //    while (result > 0) {
+                if (a[i] > a[i - 1])
+                //20>5
+                {
+                    if ((length - i) % 2 != 0) {
+                        //7-5
+                        result = a[i];
+                    } else {
+                        length = length - (length - i);
 
+                        //7-(7-5)
+
+                  //  }
                 }
             }
         }
+        System.out.println(result);
         return result;
     }
 }
