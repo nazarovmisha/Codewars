@@ -20,7 +20,7 @@ public class OrderedCountOfCharacters {
             int k = 0;
             if (arr[i] == arr[i + 1]) {
                 k++;
-                list.add(k, arr[i]);
+            //    list.add(k, arr[i]);
             }
         }
         return list;
