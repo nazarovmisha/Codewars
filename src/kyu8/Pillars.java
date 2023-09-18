@@ -8,13 +8,19 @@ package kyu8;
 //        Calculate the distance between the first and the last pillar in centimeters (without the width of the first and last pillar).
 
 
-
 public class Pillars {
     public static void main(String[] args) {
-        System.out.println(pillars(2,20,25));
+        System.out.println(pillars(11, 15, 30));
     }
-        public static int pillars(int numPill, int dist, int width){
-            return numPill*dist*10* ;
+
+    public static int pillars(int numPill, int dist, int width) {
+        if (numPill == 1) {
+            return 0;
+        } else if (numPill == 2) {
+            return dist * 100;
+        } else {
+            return dist * 100 * (numPill-1) + (width * (numPill - 2));
         }
     }
+}
 
