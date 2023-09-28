@@ -21,16 +21,20 @@ public class FromAToZ {
         System.out.println(gimmeTheLetters("h-o"));
     }
 
-    public static String gimmeTheLetters(String s){
-        char[] charArray =s.toCharArray();
+    public static String gimmeTheLetters(String s) {
+
+        char[] charArray = s.toCharArray();
         System.out.println(charArray);
-        String abc ="abcdefghijklmnopqrstuvwxyz";
+        String abc = "abcdefghijklmnopqrstuvwxyz";
+        int upper = abc.indexOf(charArray[0]);
+        if (upper < 0) {
+            abc = abc.toUpperCase();
+        }
         int first = abc.indexOf(charArray[0]);
         int last = abc.indexOf(charArray[2]);
-        String result= abc.substring(first, last+1);
+        String result = abc.substring(first, last + 1);
         System.out.println(result);
 
-
-        return "";
+        return result;
     }
 }
