@@ -11,16 +11,22 @@ package kyu7;
 //        Example:
 //        evaporator(10, 10, 5) -> 29
 //        Note:
-//        Content is in fact not necessary in the body of the function "evaporator", you can use it or not use it, as you wish. Some people might prefer to reason with content, some other with percentages only. It's up to you but you must keep it as a parameter because the tests have it as an argument.
+//        Content is in fact not necessary in the body of the function "evaporator", you can use it or not use it, as you wish. Some people might prefer to reason with content, some other with percentages only. It's up to you, but you must keep it as a parameter because the tests have it as an argument.
 
 public class DeodorantEvaporator {
 
     public static void main(String[] args) {
-        System.out.println(evaporator(10,10,10));
+        System.out.println(evaporator(10, 10, 10));
     }
+
     public static int evaporator(double content, double evap_per_day, double threshold) {
-        // your code
-        return 1;
+        int count = 0;
+        double result = content * threshold * 0.01;
+        while (content > result) {
+            content -= content * evap_per_day * 0.01;
+            count++;
+        }
+        return count;
     }
 }
 
