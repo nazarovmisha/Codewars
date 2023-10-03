@@ -2,9 +2,14 @@ package kyu7;
 
 public class NumberOfDecimalDigits {
     public static void main(String[] args) {
-        System.out.println(digits(123l));
+        System.out.println(digits(10l));
     }
     public static int digits(long n) {
-        return 0;
+        int count=1;
+        while (n>=10){
+            n=n/10;
+            count++;
+        }
+        return count;
     }
 }

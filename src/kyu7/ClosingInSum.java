@@ -27,28 +27,24 @@ package kyu7;
 //        Any number which is zero-padded counts as a single digit (see example #2).
 
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class ClosingInSum {
     public static void main(String[] args) {
-        System.out.println(closingInSum(123456l));
+        System.out.println(closingInSum(1039l));
     }
 
     public static int closingInSum(long n) {
         String temp = Long.toString(n);
-        int[] numbers = new int[temp.length()];
-        for (int i = 0; i < temp.length(); i++) {
-            numbers[i] = temp.charAt(i) - '0';
-        }
-
-        for (int i = 0; i < numbers.length; i++) {
-            if(i%2==0){
-                System.out.println(numbers[0]+numbers[numbers.length-1]);
-                return  numbers[0]+numbers[numbers.length-1];
-            }
-
-        }
+        String[] res = temp.split("");
+        int middle = res.length/2;
+        System.out.println("Middle "+middle);
+        System.out.println(Arrays.toString(res));
+        String[] out = new String[middle];
+        for (int i = 0; i < res.length/2; i++) {
+            out[i]= res[i]+res[middle+i];
+           }
+        System.out.println(Arrays.toString(out));
         return 0;
     }
 }
