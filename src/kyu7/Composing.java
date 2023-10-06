@@ -1,5 +1,6 @@
 package kyu7;
 
+
 //https://www.codewars.com/kata/56f253dd75e340ff670002ac/train/java
 
 //A squared string is a string of n lines, each substring being n characters long. We are given two n-squared strings. For example:
@@ -27,6 +28,7 @@ public class Composing {
     }
 
     public static String compose(String s1, String s2) {
+        System.out.println(s1);
         String result1 = s1.charAt(0) + s2.substring(s2.length() - 4);
         String result2 = s1.substring(5, 7) + s2.substring(s2.length() - 9, s2.length() - 6);
         String result3 = s1.substring(10, 13) + s2.substring(5, 7);
@@ -35,3 +37,4 @@ public class Composing {
         return out;
     }
 }
+
