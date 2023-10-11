@@ -24,17 +24,15 @@ package kyu7;
 // "bNkTB\nhTrWO\nRTFVi\nCnnIj");
 public class Composing {
     public static void main(String[] args) {
-        System.out.println(compose("HXxA\\nTGBf\\nIPhg\\nuUMD", "Hcbj\\nqteH\\nGbMJ\\ngYPW"));
+        System.out.println(compose("HXxA\nTGBf\nIPhg\nuUMD", "Hcbj\nqteH\nGbMJ\ngYPW"));
     }
 
     public static String compose(String s1, String s2) {
-        System.out.println(s1);
         String result1 = s1.charAt(0) + s2.substring(s2.length() - 4);
         String result2 = s1.substring(5, 7) + s2.substring(s2.length() - 9, s2.length() - 6);
         String result3 = s1.substring(10, 13) + s2.substring(5, 7);
         String result4 = s1.substring(15, 19) + s2.charAt(0);
-        String out = result1 + "\n" + result2 + "\n" + result3 + "\n" + result4;
-        return out;
+        return result1 + "\n" + result2 + "\n" + result3 + "\n" + result4;
     }
 }
 
