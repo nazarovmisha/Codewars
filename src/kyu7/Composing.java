@@ -28,6 +28,7 @@ public class Composing {
     }
 
     public static String compose(String s1, String s2) {
+
         String result1 = s1.charAt(0) + s2.substring(s2.length() - 4);
         String result2 = s1.substring(5, 7) + s2.substring(s2.length() - 9, s2.length() - 6);
         String result3 = s1.substring(10, 13) + s2.substring(5, 7);
