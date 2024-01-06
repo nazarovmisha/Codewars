@@ -1,5 +1,6 @@
 package kyu7;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,19 +12,25 @@ import java.util.regex.Pattern;
 //        If you like substring Katas, please try:
 public class LongestVowelChain {
     public static void main(String[] args) {
-        System.out.println(solve("ultrarevolutionariees"));
+        System.out.println(solve("mnopqriouaeiopqrstuvwxyuaeiouaeiou"));
 
     }
 
     public static int solve(String s) {
-        Pattern pattern = Pattern.compile("[aeiouy]");
-        Matcher matcher = pattern.matcher(s);
-        while (matcher.find()) {
-            int start = matcher.start();
-            int end = matcher.end();
-            System.out.println("Found match\n" + s.substring(start, end) + "\nfrom " + start + " to " + (end - 1));
-        }
+        String[] wordAr = s.split("(?i)[^aeiou]");
+        System.out.println(Arrays.toString(wordAr));
+        Arrays.sort(wordAr);
 
-        return 0;
+        for (int i = 0; i < wordAr.length; i++) {
+            for (int j = i + 1; j < wordAr.length ; j++) {
+                if (wordAr[i].length() > wordAr[j].length()) {
+                    String word = wordAr[j];
+                    wordAr[j] = wordAr[i];
+                    wordAr[i] = word;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(wordAr));
+        return wordAr[wordAr.length-1].length();
     }
 }

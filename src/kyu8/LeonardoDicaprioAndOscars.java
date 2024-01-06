@@ -2,6 +2,8 @@ package kyu8;
 
 //https://www.codewars.com/kata/56d49587df52101de70011e4/train/java
 public class LeonardoDicaprioAndOscars {
+
+
     public static String leo(final int oscar) {
         String answer = "";
         if (oscar == 88)
@@ -13,8 +15,6 @@ public class LeonardoDicaprioAndOscars {
         return answer;
     }
 }
-
-
 
 
 

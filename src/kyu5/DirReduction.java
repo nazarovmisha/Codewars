@@ -39,71 +39,30 @@ package kyu5;
 //        if you want to translate, please ask before translating.
 
 
-import java.util.*;
+import java.util.Arrays;
 
 public class DirReduction {
+
+
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(reduction(new String[]{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"})));
+        System.out.println(Arrays.toString(reduction(new String[]{"NORTH", "EAST", "NORTH", "EAST", "WEST", "WEST", "EAST", "EAST", "WEST", "SOUTH"})));
     }
 
     public static String[] reduction(String[] arr) {
-        String west = new String("WEST");
-        String east = new String("EAST");
-        String north = new String("NORTH");
-        String south = new String("SOUTH");
-        String nulll = new String("NULL");
         int count = 0;
-        for (int i = 0; i < arr.length-1; i++) {
-            if (Objects.equals(arr[i], north) && Objects.equals(arr[i + 1], south)) {
-                arr[i] = nulll;
-                arr[i + 1] = nulll;
-            } else if (Objects.equals(arr[i], south) && Objects.equals(arr[i + 1], north)) {
-                arr[i] = nulll;
-                arr[i + 1] = nulll;
-            } else if (Objects.equals(arr[i], west) && Objects.equals(arr[i + 1], east)) {
-                arr[i] = nulll;
-                arr[i + 1] = nulll;
-            } else if (Objects.equals(arr[i], east) && Objects.equals(arr[i + 1], west)) {
-                arr[i] = nulll;
-                arr[i + 1] = nulll;
-            }
-            if (arr[i]!=null){
-                count++;
-            }
+        String joi = String.join(" ", arr);
+        while (count <= 10) {
+            joi = joi.replaceAll("NORTH" + " " + "SOUTH", "");
+            joi = joi.replaceAll("SOUTH" + " " + "NORTH", "");
+            joi = joi.replaceAll("EAST" + " " + "WEST", "");
+            joi = joi.replaceAll("WEST" + " " + "EAST", "");
+            joi = joi.replaceAll("  ", " ");
+            joi = joi.trim();
+            count++;
         }
-        System.out.println(count);
-        return arr;
-    }
-
-    public static String[] dirReduc(String[] arr) {
-        reduction(arr);
-        String west = new String("WEST");
-        String east = new String("EAST");
-        String north = new String("NORTH");
-        String south = new String("SOUTH");
-        String nulll = new String("NULL");
-        int tmp = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (!arr[i].equals(nulll)) ;
-            tmp++;
-            System.out.println(tmp);
-        }
-
-
-        String[] newarr = new String[tmp];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].equals(north) || arr[i].equals(south) || arr[i].equals(east) || arr[i].equals(west)) ;
-            {
-                newarr[i] = arr[i];
-                System.out.println(newarr[i]);
-            }
-        }
-        System.out.println(Arrays.toString(newarr));
-        return newarr;
+        String[] answer = joi.split(" ");
+        if (!answer[0].equals("")) {
+            return answer;
+        } else return new String[]{};
     }
 }
-
-
-
-
-
