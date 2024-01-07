@@ -21,19 +21,28 @@ package kyu7;
 //        ijkl    yz12       ijkuv
 //        mnop    3456       mnopq
 
-// "bNkTB\nhTrWO\nRTFVi\nCnnIj");
+import java.util.Arrays;
+
+//        abcd    qrst  -->  a3456
+//        efgh    uvwx       efyz1
+//        ijkl    yz12       ijkuv
+//        mnop    3456       mnopq
+
 public class Composing {
     public static void main(String[] args) {
-        System.out.println(compose("HXxA\nTGBf\nIPhg\nuUMD", "Hcbj\nqteH\nGbMJ\ngYPW"));
+        compose("HXxA\nTGBf\nIPhg\nuUMD", "Hcbj\nqteH\nGbMJ\ngYPW");
     }
 
     public static String compose(String s1, String s2) {
+        int count = s1.length() / 4 + 1;
+        System.out.println(count);
 
-        String result1 = s1.charAt(0) + s2.substring(s2.length() - 4);
-        String result2 = s1.substring(5, 7) + s2.substring(s2.length() - 9, s2.length() - 6);
-        String result3 = s1.substring(10, 13) + s2.substring(5, 7);
-        String result4 = s1.substring(15, 19) + s2.charAt(0);
-        return result1 + "\n" + result2 + "\n" + result3 + "\n" + result4;
+        String result = "";
+        for (int i = 0; i < s1.length(); i++) {
+         result=s1.substring(i)
+        }
+
+        return "";
     }
 }
 
