@@ -1,5 +1,5 @@
 package kyu7;
-
+//https://www.codewars.com/kata/576400f2f716ca816d001614/train/java
 import java.util.Arrays;
 
 public class ReduceMyFraction {
@@ -8,22 +8,16 @@ public class ReduceMyFraction {
     }
 
     public static int[] myFraction(int[] fractions) {
-        boolean alive = true;
         int[] answer = new int[2];
-        while (alive) {
-            for (int i = 2; i < 1000; i++) {
-                if (fractions[0] % i == 0 && fractions[1] % i == 0) {
-                    fractions[0] /= i;
-                    fractions[1] /= i;
-                    i=2;
-                } else
-                    answer[0] = fractions[0];
+        for (int i = 1; i < 20; i++) {
+            if (fractions[0] % i == 0 && fractions[1] % i == 0) {
+                fractions[0] /= i;
+                fractions[1] /= i;
+                answer[0] = fractions[0];
                 answer[1] = fractions[1];
-                alive = false;
-
+                i = 1;
             }
         }
         return answer;
     }
-
 }
