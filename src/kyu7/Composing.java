@@ -21,8 +21,6 @@ package kyu7;
 //        ijkl    yz12       ijkuv
 //        mnop    3456       mnopq
 
-import java.util.Arrays;
-
 //        abcd    qrst  -->  a3456
 //        efgh    uvwx       efyz1
 //        ijkl    yz12       ijkuv
@@ -35,11 +33,13 @@ public class Composing {
 
     public static String compose(String s1, String s2) {
         int count = s1.length() / 4 + 1;
+        int count2 =s1.length()/4;
         System.out.println(count);
+        System.out.println(count2);
 
         String result = "";
         for (int i = 0; i < s1.length(); i++) {
-         result=s1.substring(i)
+       //  result=s1.substring(i+count)+s2.substring()
         }
 
         return "";
