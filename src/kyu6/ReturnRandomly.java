@@ -14,17 +14,18 @@ public class ReturnRandomly {
 
     }
     public  static int oneTwoThree() {
-        if (result1 == result2 && result2 == result3) {
+        if  (result1 == result2 && result2 == result3) {
             result1++;
             return 1;
-        } else if (result1 > result2 && result2 == result3) {
+        } else if (result1 > result2 && result2 >= result3) {
             result2++;
             return 2;
-        } else if (result3 < result2 && result2 == result1) {
+        } else if (result3 < result2 && result2 <= result1) {
             result3++;
             return 3;
         }
-        result1++;
-        return 1;
+        assert false;
+        return 0;
     }
 }
+
