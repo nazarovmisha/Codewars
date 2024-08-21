@@ -1,5 +1,7 @@
 package kyu8;
 
+
+
 public class Grasshopper {
     public static void main(String[] args) {
         System.out.println(getGrade(99,22,9));
