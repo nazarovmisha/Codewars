@@ -18,13 +18,12 @@ public class DescendingOrder {
             intArray[i]=Character.getNumericValue(charArray[i]);
         }
        Arrays.sort(intArray,Collections.reverseOrder());
-        String result = "";
-        for (int i = 0; i < intArray.length; i++) {
-            result+=intArray[i];
+        StringBuilder result = new StringBuilder();
+        for (Integer integer : intArray) {
+            result.append(integer);
         }
-        int resultInt=Integer.parseInt(result);
 
-        return resultInt;
+        return Integer.parseInt(result.toString());
         }
 
     }
