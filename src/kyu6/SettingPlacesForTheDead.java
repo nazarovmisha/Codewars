@@ -21,7 +21,7 @@ import java.util.Arrays;
 
 public class SettingPlacesForTheDead {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(setTable(new String[]{"Artlu"})));
+        System.out.println(Arrays.toString(setTable(new String[]{"OArtlu"})));
     }
     public static String[] setTable(String[] theDead) {
         int start =0;
@@ -40,7 +40,10 @@ public class SettingPlacesForTheDead {
                 favoritePlace=0;
 
 
-            }
+            } else  if (stringFirstLetter.equals("Q")||stringFirstLetter.equals("U")||stringFirstLetter.equals("T")||
+                        stringFirstLetter.equals("H")||stringFirstLetter.equals("C")||stringFirstLetter.equals("R")||
+                        stringFirstLetter.equals("D")||stringFirstLetter.equals("M")||stringFirstLetter.equals("Z")){
+                favoritePlace=0;
         }
 
 
