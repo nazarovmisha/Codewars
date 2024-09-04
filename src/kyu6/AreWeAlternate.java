@@ -4,7 +4,7 @@ package kyu6;
 
 public class AreWeAlternate {
     public static void main(String[] args) {
-        System.out.println(isAlt("ata"));
+        System.out.println(isAlt("aataratat"));
     }
 
     public static boolean isAlt(String word) {
