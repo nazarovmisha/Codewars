@@ -16,7 +16,7 @@ package kyu6;
 public class Prime {
     public static void main(String[] args) {
 
-        System.out.println(isPrime(1764382811  ));
+        System.out.println(isPrime(5  ));
 
     }
     public static boolean isPrime(int num) {
