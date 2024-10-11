@@ -3,7 +3,7 @@ package kyu7;
 //https://www.codewars.com/kata/5b0d67c1cb35dfa10b0022c7/train/java
 public class TheRiceAndChessboardProblem {
     public static void main(String[] args) {
-        System.out.println(squaresNeeded(10000000000l));
+        System.out.println(squaresNeeded(400000000));
     }
 
     public static int squaresNeeded(long grains) {
