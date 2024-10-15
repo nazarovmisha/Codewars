@@ -1,22 +1,48 @@
 package kyu6;
 
-//https://www.codewars.com/kata/659af96994b858db10e1675f/train/java
 public class TheLostBeginning {
-
     public static void main(String[] args) {
-        beginning("121314");
+        System.out.println(beginning("99100"));
     }
 
     public static long beginning(String s) {
-        int[] result = new int[s.length()];
-        int answer = 0;
-        int j = Integer.parseInt(s);
-        if (s.length() % 2 == 0) {
-            for (int i = 0; i < s.length(); i++) {
-                result[j] =  Character.getNumericValue(s.charAt(i));
+        int start = 1;
+        int finish = 1;
+        int count = 0;
+        String one = "";
+        String two = "";
+        int result = 0;
+        for (int i = 0; i < s.length() / 2-1; i++) {
+            one = s.substring(0, start + count);
+            two = s.substring(start + count, start + finish + count);
+            if (Integer.parseInt(two) - Integer.parseInt(one) == 1) {
+                result = Integer.parseInt(one);
+            }
+            count++;
+            finish++;
+            System.out.println("one - " + one);
+            System.out.println("two - " + two);
+        }
+        if (result == 0) {
+            for (int j = 0; j < (s.length() / 2) - 1; j++) {
+                one = s.substring(0, start);
+                two = s.substring(start + count, start + finish + count);
+                System.out.println("one - " + one);
+                System.out.println("two - " + two);
+                if (Integer.parseInt(two) - Integer.parseInt(one) == 1) {
+                    result = Integer.parseInt(one);
+                }
+                count++;
+
+                System.out.println("one - " + one);
+                System.out.println("two - " + two);
             }
         }
-        return 0;
+
+        if (result == 0) {
+            return Integer.parseInt(s);
+        } else {
+            return result;
+        }
     }
 }
-
