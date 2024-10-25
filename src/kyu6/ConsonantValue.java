@@ -1,7 +1,5 @@
 package kyu6;
 
-import java.util.Arrays;
-
 //https://www.codewars.com/kata/59c633e7dcc4053512000073/train/java
 public class ConsonantValue {
     public static void main(String[] args) {
