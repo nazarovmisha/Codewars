@@ -2,7 +2,7 @@ package kyu6;
 
 public class TheLostBeginning {
     public static void main(String[] args) {
-        System.out.println(beginning("99100"));
+        System.out.println(beginning("91011"));
     }
 
     public static long beginning(String s) {
