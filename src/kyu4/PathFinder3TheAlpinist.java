@@ -19,7 +19,7 @@ public class PathFinder3TheAlpinist {
         String[][] matrix = new String[arr.length][];
         int n = 0;
         for (String s : arr) {
-            matrix[n++] =Arrays.toString(s.split("");
+          //  matrix[n++] =Arrays.toString(s.split("");
         }
         int startPosition = Integer.parseInt(matrix[0][0]);
         int finishPosition=Integer.parseInt(matrix[0][0]);
@@ -30,7 +30,7 @@ public class PathFinder3TheAlpinist {
     }
 
     public static boolean checkPosition (int n){
-
+return true;
     }
 }
 
