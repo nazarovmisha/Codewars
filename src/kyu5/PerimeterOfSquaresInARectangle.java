@@ -8,22 +8,18 @@ public class PerimeterOfSquaresInARectangle {
     }
 
     public static BigInteger perimeter(BigInteger n) {
-        int count = 1;
-        int summ = 1;
-        int result=0;
-        int firstValue = 0;
-        int secondValue = 1;
+        int count = 0;
+        BigInteger result= new BigInteger("0");
+        BigInteger firstValue = new BigInteger("0");
+        BigInteger secondValue = new BigInteger("1");
 
         while (count < n.intValue()) {
-            summ = firstValue + secondValue;
-            result += summ;
-            firstValue = secondValue;
-            secondValue = result;
+            secondValue = secondValue.add(firstValue);
+            firstValue = secondValue.subtract(firstValue);
+            result=result.add(secondValue);
             count++;
-            System.out.println(result);
         }
-        BigInteger a = BigInteger.valueOf(result);
-        return a;
+        return result.add(BigInteger.valueOf(1)).multiply(BigInteger.valueOf(4)) ;
     }
 }
 
