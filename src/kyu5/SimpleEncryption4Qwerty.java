@@ -8,43 +8,76 @@ import java.util.Arrays;
 public class SimpleEncryption4Qwerty {
     static String[] arr1 = {"q", "w", "e", "r", "t", "y", "u", "i", "o", "p"};
     static String[] arr1Shift = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
-    static String[] arr2 = {"a", "s", "d", "f", "g", "h", "j", "k", "l"};
-    static String[] arr2Shift = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
-    static String[] arr3 = {"z", "x", "c", "v", "b", "n", "m", ",", "."};
-    static String[] arr3Shift = {"Z", "X", "C", "V", "B", "N", "M", "<", ">"};
+    static String[] arr2 = {"a", "s", "d", "f", "g", "h", "j", "k", "l", ""};
+    static String[] arr2Shift = {"A", "S", "D", "F", "G", "H", "J", "K", "L", ""};
+    static String[] arr3 = {"z", "x", "c", "v", "b", "n", "m", ",", ".", ""};
+    static String[] arr3Shift = {"Z", "X", "C", "V", "B", "N", "M", "<", ">", ""};
 
 
     public static void main(String[] args) {
-        System.out.println(encrypt(">fdd", 134));
-        System.out.println(decrypt(encrypt(">fdd", 134), 134));
+        System.out.println(encrypt("Iaqh qh g iyhi,", 348));
+        //  System.out.println(decrypt(encrypt("fdd", 134), 134));
     }
 
     public static String encrypt(String text, int key) {
-
-        String answer = "";
-        String[] keyString = (String.valueOf(key)).split("");
-        answer += add(arr1, text, Integer.parseInt(keyString[0]));
-        answer += add(arr1Shift, text, Integer.parseInt(keyString[0]));
-        answer += add(arr2, text, Integer.parseInt(keyString[1]));
-        answer += add(arr2Shift, text, Integer.parseInt(keyString[1]));
-        answer += add(arr3, text, Integer.parseInt(keyString[2]));
-        answer += add(arr3Shift, text, Integer.parseInt(keyString[2]));
-        return answer;
+        StringBuilder answer = new StringBuilder();
+        String kkk = String.valueOf(key);
+        String[] keyString = kkk.split("");
+        String[] textArr = text.split("");
+        System.out.println(text);
+        System.out.println(Arrays.toString(textArr));
+        System.out.println(text.length());
+        System.out.println(textArr.length);
+        answer.append(add(textArr, keyString));
+        return answer.toString();
     }
 
-
-    public static String add(String[] arr, String text, int key) {
+    static String add(String[] textArr, String[] keyString) {
         StringBuilder answer = new StringBuilder();
-        for (int i = 0; i < arr.length; i++) {
-            if (text.contains(arr[i])) {
-                int a = i - key;
-                if (a < 0) {
-                    a = arr.length + a;
-                    answer.append(arr[a]);
-                }
-            }//else {
-           //     answer.append(arr[i]);
-          //  }
+        for (int i = 0; i < textArr.length; i++) {
+            for (int j = 0; j < arr1.length; j++) {
+                int a;
+                if (textArr[i].equals(arr1[j])) {
+                    a = j - Integer.parseInt(keyString[0]);
+                    if (a < 0) {
+                        a += arr1.length;
+                    }
+                    answer.append(arr1[a]);
+                } else if (textArr[i].equals(arr1Shift[j])) {
+                    a = j - Integer.parseInt(keyString[0]);
+                    if (a < 0) {
+                        a += arr1Shift.length;
+                    }
+                    answer.append(arr1Shift[a]);
+                } else if (textArr[i].equals(arr2[j])) {
+                    a = j - Integer.parseInt(keyString[1]);
+                    if (a < 0) {
+                        a += arr2.length - 1;
+                    }
+                    answer.append(arr2[a]);
+                } else if (textArr[i].equals(arr2Shift[j])) {
+                    a = j - Integer.parseInt(keyString[1]);
+                    if (a < 0) {
+                        a += textArr.length - 1;
+                    }
+                    answer.append(arr2Shift[a]);
+                } else if (textArr[i].equals(arr3[j])) {
+                    a = j - Integer.parseInt(keyString[2]);
+                    if (a < 0) {
+                        a += arr3.length - 1;
+                    }
+                    answer.append(arr3[a]);
+                } else if (textArr[i].equals(arr3Shift[j])) {
+                    a = j - Integer.parseInt(keyString[2]);
+                    System.out.println(a);
+                    if (a < 0) {
+                        a += arr3Shift.length - 1;
+                    }
+                    answer.append(arr3Shift[a]);
+                } //else {
+                  //  answer.append(textArr[j]);
+              //  }
+            }
         }
         return answer.toString();
     }
