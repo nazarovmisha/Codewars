@@ -3,8 +3,6 @@ package kyu5;
 //https://www.codewars.com/kata/57f14afa5f2f226d7d0000f4/train/java
 
 
-import java.util.Arrays;
-
 public class SimpleEncryption4Qwerty {
     static String[] arr1 = {"q", "w", "e", "r", "t", "y", "u", "i", "o", "p"};
     static String[] arr1Shift = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
@@ -16,7 +14,8 @@ public class SimpleEncryption4Qwerty {
 
     public static void main(String[] args) {
         System.out.println(encrypt("Iaqh qh g iyhi,", 348));
-        //  System.out.println(decrypt(encrypt("fdd", 134), 134));
+        System.out.println(encrypt("Sr pgi jlpl Jr,lqlage Zlow Piapc I.skiaa dw. l.s ibnepizi.p ugi. de.se.f l arkwper.c", 583));
+        System.out.println(decrypt("Ball",134));
     }
 
     public static String encrypt(String text, int key) {
@@ -24,10 +23,6 @@ public class SimpleEncryption4Qwerty {
         String kkk = String.valueOf(key);
         String[] keyString = kkk.split("");
         String[] textArr = text.split("");
-        System.out.println(text);
-        System.out.println(Arrays.toString(textArr));
-        System.out.println(text.length());
-        System.out.println(textArr.length);
         answer.append(add(textArr, keyString));
         return answer.toString();
     }
@@ -43,30 +38,35 @@ public class SimpleEncryption4Qwerty {
                         a += arr1.length;
                     }
                     answer.append(arr1[a]);
+                    break;
                 } else if (textArr[i].equals(arr1Shift[j])) {
                     a = j - Integer.parseInt(keyString[0]);
                     if (a < 0) {
                         a += arr1Shift.length;
                     }
                     answer.append(arr1Shift[a]);
+                    break;
                 } else if (textArr[i].equals(arr2[j])) {
                     a = j - Integer.parseInt(keyString[1]);
                     if (a < 0) {
                         a += arr2.length - 1;
                     }
                     answer.append(arr2[a]);
+                    break;
                 } else if (textArr[i].equals(arr2Shift[j])) {
                     a = j - Integer.parseInt(keyString[1]);
                     if (a < 0) {
-                        a += textArr.length - 1;
+                        a += arr2Shift.length - 1;
                     }
                     answer.append(arr2Shift[a]);
+                    break;
                 } else if (textArr[i].equals(arr3[j])) {
                     a = j - Integer.parseInt(keyString[2]);
                     if (a < 0) {
                         a += arr3.length - 1;
                     }
                     answer.append(arr3[a]);
+                    break;
                 } else if (textArr[i].equals(arr3Shift[j])) {
                     a = j - Integer.parseInt(keyString[2]);
                     System.out.println(a);
@@ -74,17 +74,18 @@ public class SimpleEncryption4Qwerty {
                         a += arr3Shift.length - 1;
                     }
                     answer.append(arr3Shift[a]);
-                } //else {
-                  //  answer.append(textArr[j]);
-              //  }
+                    break;
+                } else if (textArr[i].equals(" ")) {
+                    answer.append(" ");
+                    break;
+                }
             }
         }
         return answer.toString();
     }
 
     public static String decrypt(String encryptedText, int key) {
-
-        return encryptedText;
+        return encrypt(encryptedText, -key);
     }
 }
 
